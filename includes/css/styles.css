@@ -17,6 +17,11 @@
 	border: 2px solid #00a0d2; /* Blue */
 }
 
+.wpcf7 form[response-output-top="on"].sent .wpcf7-response-output {
+	margin-left: 0;
+	padding-left: 0;
+}
+
 .wpcf7 form.init .wpcf7-response-output,
 .wpcf7 form.resetting .wpcf7-response-output,
 .wpcf7 form.submitting .wpcf7-response-output {

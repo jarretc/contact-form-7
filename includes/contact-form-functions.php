@@ -231,6 +231,7 @@ function wpcf7_contact_form_tag_func( $atts, $content = null, $code = '' ) {
 				'html_title' => '',
 				'html_class' => '',
 				'output' => 'form',
+				'response_output_top' => '',
 			),
 			$atts, 'wpcf7'
 		);

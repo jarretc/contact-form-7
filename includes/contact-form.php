@@ -527,6 +527,7 @@ class WPCF7_ContactForm {
 			'html_title' => '',
 			'html_class' => '',
 			'output' => 'form',
+			'response_output_top' => '',
 		) );
 
 		$this->shortcode_atts = $options;
@@ -650,15 +651,21 @@ class WPCF7_ContactForm {
 			'autocomplete' => ( '' !== $autocomplete ) ? $autocomplete : null,
 			'novalidate' => true,
 			'data-status' => $data_status_attr,
+			'response-output-top' => $options['response_output_top'],
 		);
 
 		$atts += (array) apply_filters( 'wpcf7_form_additional_atts', array() );
 
 		$html .= sprintf( '<form %s>', wpcf7_format_atts( $atts ) ) . "\n";
+
+		if ( ! $this->responses_count && 'on' === $options['response_output_top'] ) {
+			$html .= $this->form_response_output();
+		}
+
 		$html .= $this->form_hidden_fields();
 		$html .= $this->form_elements();
 
-		if ( ! $this->responses_count ) {
+		if ( ! $this->responses_count && 'on' !== $options['response_output_top'] ) {
 			$html .= $this->form_response_output();
 		}
 
